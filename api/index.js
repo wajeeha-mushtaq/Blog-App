@@ -6,12 +6,12 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const multer  = require('multer');
-
+const path = require('path');
 
 dotenv.config();
 // send json to body otherwise 500 error
 app.use(express.json());
-// app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 // mongodb connection
 mongoose.connect(process.env.MONGO_URL, {
