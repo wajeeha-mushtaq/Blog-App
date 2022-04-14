@@ -9,10 +9,10 @@ export default function Homepage() {
   const [posts, setPosts] = useState([]);
   const {search} = useLocation();
 
+  // fetch all posts on load
   useEffect(()=>{
     const fetchPosts =  async () => {
       const res = await axios.get("/posts" + search);
-      // console.log(res);
       setPosts(res.data);
     }
     fetchPosts();

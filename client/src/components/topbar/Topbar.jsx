@@ -5,6 +5,7 @@ import "./topbar.css";
 
 export default function Topbar() {
   const {user, dispatch} = useContext(Context);
+  // handle logout
   const handleLogout = () => {
     dispatch({type: "LOGOUT"})
   }
@@ -34,7 +35,9 @@ export default function Topbar() {
         </ul>
       </div>
       <div className="topRight">
+        {/* if user is not authenticated */}
         {user ? (
+          // if user profile pic is not given
             user.profilePic ?
               <img
               className="topImg"

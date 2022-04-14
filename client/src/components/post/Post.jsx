@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 export default function Post({post}) {
+  // for the images associated with blogs
   const PF = "http://localhost:5000/images/";
   return (
     <div className="post">
