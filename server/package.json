@@ -13,8 +13,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTIONN=false npm install --prefix client && run build"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
