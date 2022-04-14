@@ -35,9 +35,15 @@ export default function Topbar() {
       </div>
       <div className="topRight">
         {user ? (
-            <img
+            user.profilePic ?
+              <img
               className="topImg"
               src={user.profilePic}
+              alt=""
+            />:
+              <img
+              className="topImg"
+              src="https://cdn1.vectorstock.com/i/1000x1000/61/50/avatar-business-man-graphic-vector-9646150.jpg"
               alt=""
             />
         ) : (
