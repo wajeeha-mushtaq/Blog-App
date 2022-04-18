@@ -1,3 +1,4 @@
+import React from 'react';
 import SinglePost from "../../components/singlePost/SinglePost";
 import "./single.css";
 

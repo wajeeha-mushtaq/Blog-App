@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React , { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
@@ -26,14 +26,14 @@ export default function Write() {
         await axios.post("/upload", data);
 
       } catch(err){
-
+        console.log(err);
       }
     }
     try{
       const res = await axios.post("/posts", newPost);
       window.location.replace("/posts/" + res.data._id);
     } catch(err){
-
+      console.log(err);
     }
   }
   return (

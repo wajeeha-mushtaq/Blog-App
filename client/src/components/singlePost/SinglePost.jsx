@@ -1,3 +1,4 @@
+import React from 'react';
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
@@ -31,7 +32,9 @@ export default function SinglePost() {
         data: { username: user.username },
       });
       window.location.replace("/");
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleUpdate = async () => {
@@ -42,7 +45,7 @@ export default function SinglePost() {
         desc,
       });
       setUpdateMode(false)
-    } catch (err) {}
+    } catch (err) {console.log(err);}
   };
 
   return (
