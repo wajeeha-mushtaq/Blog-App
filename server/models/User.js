@@ -19,6 +19,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
+  token: { type: String }
 }, {timestamp: true});
 
 module.exports = mongoose.model("User", UserSchema);
