@@ -25,3 +25,12 @@ Once published, the draft should be removed.
 -  Publishing
 The user should be able to publish his/her posts.
 Once published, the post can be seen by other users and non users.
+
+## Installation Guide
+
+- Open Terminal and type
+`git clone https://github.com/wajeeha-mushtaq/Blog-App.git`
+
+- Then
+`cd client`
+`yarn install`
