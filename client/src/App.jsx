@@ -8,6 +8,7 @@ import Write from "./pages/write/Write";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import DraftPage from './pages/draft/DraftPage';
 
 function App() {
   const {user} = useContext(Context);
@@ -29,6 +30,7 @@ function App() {
           <Single />
         </Route>
         <Route path="/write">{user ? <Write /> : <Login />}</Route>
+        <Route path="/draft">{user ? <DraftPage/> : <Login />}</Route>
       </Switch>
     </Router>
   );

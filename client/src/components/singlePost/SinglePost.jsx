@@ -48,6 +48,18 @@ export default function SinglePost() {
     } catch (err) {console.log(err);}
   };
 
+  const publishPost = async () =>{
+    try {
+      await axios.put(`/posts/${post._id}`, {
+        username: user.username,
+        title,
+        desc,
+        published: true
+      });
+      window.location.replace("/");
+    } catch (err) {console.log(err);}
+  };
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -102,6 +114,10 @@ export default function SinglePost() {
           </button>
         )}
       </div>
+      {
+        post.published == false ?
+        <button className='writeSubmit' onClick={publishPost}>Publish</button>:null
+      }
     </div>
   );
 }

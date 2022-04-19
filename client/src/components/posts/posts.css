@@ -1,3 +1,7 @@
+.text{
+    padding: 2%;
+    text-align: center;
+}
 .posts{
     flex: 9;
     display: flex;

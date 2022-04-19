@@ -18,9 +18,10 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  draft:{
+  published:{
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   }
 }, {timestamp: true});
 

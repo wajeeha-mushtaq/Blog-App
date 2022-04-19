@@ -9,12 +9,41 @@ export default function Write() {
   const [file, setFile] = useState(null);
   const {user} = useContext(Context);
 
+  const handleDraft = async (e) => {
+    e.preventDefault();
+    const newPost = {
+      username: user.username,
+      title,
+      desc,
+    }
+    if (file){
+      const data = new FormData();
+      const filename = Date.now() + file.name;
+      data.append("name", filename);
+      data.append("file", file);
+      newPost.photo = filename;
+      try{
+        await axios.post("/upload", data);
+
+      } catch(err){
+        console.log(err);
+      }
+    }
+    try{
+      const res = await axios.post("/posts", newPost);
+      window.location.replace("/posts/" + res.data._id);
+    } catch(err){
+      console.log(err);
+    }
+  }
+
   const handleSubmit = async (e) =>{
     e.preventDefault();
     const newPost = {
       username: user.username,
       title,
-      desc
+      desc,
+      published: true
     }
     if (file){
       const data = new FormData();
@@ -68,7 +97,10 @@ export default function Write() {
             onChange={(e) => setDesc(e.target.value)}
           />
         </div>
-        <button className="writeSubmit" type="submit">
+        <button className="writeDraft" type="submit" onClick={handleDraft}>
+          Save as Draft
+        </button>
+        <button className="writeSubmit" type="submit" onClick={handleSubmit}>
           Publish
         </button>
       </form>
